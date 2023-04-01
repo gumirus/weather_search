@@ -1,2 +1,1 @@
-# [Поиск погоды](https://gumirus.github.io/weather_search)
-- cities write only in English
+# [Поиск погоды на любые города](https://gumirus.github.io/weather_search)
