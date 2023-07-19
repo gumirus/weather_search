@@ -76,7 +76,9 @@ function searchWeather() {
       temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
       description.innerHTML = `${json.weather[0].description}`;
       humidity.innerHTML = `${json.main.humidity}%`;
-      wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+      wind.innerHTML = `${getWindDirectionInRussian(json.wind.deg)}, ${
+        json.wind.speed
+      } м/с`;
 
       weatherBox.style.display = "";
       weatherDetails.style.display = "";
@@ -84,4 +86,29 @@ function searchWeather() {
       weatherDetails.classList.add("fadeIn");
       container.style.height = "590px";
     });
+}
+
+function getWindDirectionInRussian(degree) {
+  const directions = [
+    "Северный",
+    "Северо-Северо-Восточный",
+    "Северо-Восточный",
+    "Восточно-Северо-Восточный",
+    "Восточный",
+    "Восточно-Юго-Восточный",
+    "Юго-Восточный",
+    "Юго-Юго-Восточный",
+    "Южный",
+    "Юго-Юго-Западный",
+    "Юго-Западный",
+    "Западно-Юго-Западный",
+    "Западный",
+    "Западно-Северо-Западный",
+    "Северо-Западный",
+    "Северо-Северо-Западный",
+    "Северный",
+  ];
+
+  const index = Math.round((degree % 260) / 18.5);
+  return directions[index];
 }
