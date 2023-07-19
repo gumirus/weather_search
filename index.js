@@ -17,7 +17,7 @@ searchInput.addEventListener("keydown", (event) => {
 
 function searchWeather() {
   const APIKey = "639f6d1dbd5e980f47d8d67c717c3083";
-  const city = searchInput.value;
+  const city = searchInput.value.trim();
 
   if (city === "") {
     return;
